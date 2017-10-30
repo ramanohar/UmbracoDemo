@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.TextPage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+@{
+    var typedMediaPickerSingle = Model.Content.GetPropertyValue<IPublishedContent>("backgroundImage");
+} 
+
+ <header class="masthead" style="background-image: url('@typedMediaPickerSingle.Url')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading" style="margin-top: -85px;">
+              <h1>@Umbraco.Field("title")</h1>
+              <span class="subheading">@Umbraco.Field("SubTitle")</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>@Umbraco.Field("bo")</p>
+          <p class="blockquote">@Umbraco.Field("quote")</p>
+         
+        </div>
+      </div>
+    </div>

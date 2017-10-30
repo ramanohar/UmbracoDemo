@@ -1,0 +1,50 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+
+
+@{
+	var selection = Model.Content.Site().FirstChild("blogPage").Children("blogItem")
+						.Where(x => x.IsVisible());
+}
+
+	@foreach(var item in selection){
+	<div class="col-sm-3">
+        <div class="owl-carousel">
+            <div class="post-slide">
+                <div class="post-img">
+                    
+                    
+                    @{
+                        var typedMediaPickerSingle = item.GetPropertyValue<IPublishedContent>("blogTeaserImage");
+                        if (typedMediaPickerSingle != null)
+                        {
+
+                            <img class="img-responsive" src="@typedMediaPickerSingle.Url">
+                            
+                        }
+                    }    
+   
+                    <div class="over-layer">
+                        <ul class="post-link">
+                            <li>
+                                <a href="@item.Url" class="fa fa-link"></a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div>
+                <div class="post-content">
+                    <h3 class="post-title">
+                        <a href="@item.Url">@item.GetPropertyValue("blogTeaser")</a>
+                    </h3>
+                    <p class="post-description">@item.GetPropertyValue("BlogshortDescription")</p>
+                    <a href="@item.Url" class="read-more">read more..</a>
+                </div>
+            </div>
+        </div>
+    </div>
+	}
+
+
+
+

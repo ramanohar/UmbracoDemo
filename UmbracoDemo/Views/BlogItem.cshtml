@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.BlogItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+@{
+    var typedMediaPickerSingle = Model.Content.GetPropertyValue<IPublishedContent>("blogBanner");
+} 
+
+ <header class="masthead" style="background-image: url('@typedMediaPickerSingle.Url')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>@Umbraco.Field("blogTitle")</h1>
+              <h2 class="subheading">@Umbraco.Field("blogTeaser")</h2>
+              <span class="meta">Posted on
+                <a href="#">@Umbraco.Field("creatorName")</a>
+                on @Umbraco.Field("createDate", formatAsDate: true, convertLineBreaks: true)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+           @Umbraco.Field("blog")
+          </div>
+        </div>
+      </div>
+    </article>

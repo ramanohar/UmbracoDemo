@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+@{
+    var typedMediaPickerSingle = Model.Content.GetPropertyValue<IPublishedContent>("backgroundImage");
+} 
+
+ <header class="masthead" style="background-image: url('@typedMediaPickerSingle.Url')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>@Umbraco.Field("bannerText")</h1>
+              <span class="subheading">@Umbraco.Field("bannerDescription")</span>
+              <a href="#" style="
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #fa5757;
+    text-shadow: 2px 2px 27px #000;
+">Find a Restaurant</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="row">
+        @Html.Partial("BlogItem")
+    </div>

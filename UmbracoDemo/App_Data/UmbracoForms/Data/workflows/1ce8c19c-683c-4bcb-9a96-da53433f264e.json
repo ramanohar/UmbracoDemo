@@ -1,0 +1,16 @@
+{
+  "id": "1ce8c19c-683c-4bcb-9a96-da53433f264e",
+  "name": "Send template email to manohar.ra@gmail.com",
+  "form": "34fd85ae-1cb3-4dc2-8f43-c388e87e8bee",
+  "active": true,
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "manohar.ra@gmail.com",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

@@ -1,0 +1,38 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Contact>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+@{
+    var typedMediaPickerSingle = Model.Content.GetPropertyValue<IPublishedContent>("backgroundImage");
+} 
+
+ <header class="masthead" style="background-image: url('@typedMediaPickerSingle.Url')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Contact Me</h1>
+              <span class="subheading">Have questions? I have answers (maybe).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
+         
+          @Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid="34fd85ae-1cb3-4dc2-8f43-c388e87e8bee", FormTheme="", ExcludeScripts="0"})
+       
+            @*@Html.Action("GetContactUs", "ContactSurface")*@
+    
+
+          
+        </div>
+      </div>
+    </div>
